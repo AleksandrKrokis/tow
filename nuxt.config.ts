@@ -6,5 +6,10 @@ export default defineNuxtConfig({
     locales: ['ee', 'en', 'ru'],
     defaultLocale: 'ee',
     vueI18n: './i18n.config.ts' // if you are using custom path, default
+  },
+  nitro: {
+    prerender: {
+      autoSubfolderIndex: false
+    }
   }
 })

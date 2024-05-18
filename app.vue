@@ -2,34 +2,26 @@
   <div>
     <header class="page_header header_darkgrey header_transparent table_section table_section_md toggler_right">
       <div class="container">
-        <div class="row">
+        <div class="row" style="display: flex; justify-content: space-between; align-items: center;">
           <div class="col-md-3">
             <a href="./" class="logo top_logo bottommargin_10 topmargin_10">
               <img src="~/assets/logo.svg" width="180px" alt="alfatre">
             </a>
-            <span class="toggle_menu">
-								<span></span>
-							</span>
           </div>
           <div class="col-md-9 text-right">
-            <nav class="mainmenu_wrapper">
-              <ul class="mainmenu nav sf-menu">
-                <li class="">
-                  <nuxt-link to="/" class="inline-block padding_0" style="margin-left: 5px; margin-right: 5px;" @click="setLocale('ee')">
-                    <img src="~/assets/ee.svg" width="20px" alt="">
-                  </nuxt-link>
-                </li>
-                <li class="">
-                  <nuxt-link :to="localePath('en')" class="inline-block padding_0" style="margin-left: 5px; margin-right: 5px;" @click="setLocale('en')">
-                    <img src="~/assets/gb.svg" width="20px" alt="">
-                  </nuxt-link>
-                </li>
-                <li class="">
-                  <nuxt-link :to="localePath('ru')" class="inline-block padding_0" style="margin-left: 5px; margin-right: 5px;" @click="setLocale('ru')">
-                    <img src="~/assets/ru.svg" width="20px" alt="">
-                  </nuxt-link>
-                </li>
-              </ul>
+            <nav class="mainmenu_wrapper" style="display: block">
+              <nuxt-link to="/" class="inline-block padding_0" style="margin-left: 5px; margin-right: 5px;"
+                         @click="setLocale('ee')">
+                <img src="~/assets/ee.svg" width="20px" alt="">
+              </nuxt-link>
+              <nuxt-link :to="localePath('en')" class="inline-block padding_0"
+                         style="margin-left: 5px; margin-right: 5px;" @click="setLocale('en')">
+                <img src="~/assets/gb.svg" width="20px" alt="">
+              </nuxt-link>
+              <nuxt-link :to="localePath('ru')" class="inline-block padding_0"
+                         style="margin-left: 5px; margin-right: 5px;" @click="setLocale('ru')">
+                <img src="~/assets/ru.svg" width="20px" alt="">
+              </nuxt-link>
             </nav>
           </div>
         </div>
@@ -107,17 +99,17 @@
           </div>
         </div>
         <div class="row topmargin_40">
-          <div class="col-3">
+          <div class="col-md-4 col-sm-4 col-lg-4 col-4" style="vertical-align: top;">
             <div class="h3">Teenindusleping puksiir</div>
             <a href="#">Laadi alla</a>
           </div>
-          <div class="col-3">
+          <div class="col-md-4 col-sm-4 col-lg-4 col-4" style="vertical-align: top;">
             <div class="h3">Tingimused</div>
             <p>Välissõite ja muid hinnakirjas välja toomata site teostatakse eraldi|
               kokkuleppe alusel. Puksiirteenus algab väljasoidu algusest Teaduspargil
               11, Tallinn ja löppeb tagasi judes Teaduspargi 11, Tallinn.</p>
           </div>
-          <div class="col-3">
+          <div class="col-md-4 col-sm-4 col-lg-4 col-4" style="vertical-align: top;">
             <div class="h3">Teisaldamise tingimused</div>
             <a href="#">Laadi alla</a>
           </div>
@@ -181,7 +173,7 @@
 
 
 <script lang="ts" setup>
-const { locale, setLocale } = useI18n()
+const {locale, setLocale} = useI18n()
 const localePath = useLocalePath()
 
 import '~/assets/animations.css'

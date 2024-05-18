@@ -8564,17 +8564,17 @@ body.active-side-header.slide-right .page_header_side {
 @media (max-width: 991px) {
 	.mainmenu_wrapper {
     /*position: relative;*/
-		position: fixed;
-		visibility: hidden;
-		z-index: 10;
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
-		background-color: transparent;
-		opacity: 0;
-		-webkit-transition: all 0.3s ease 0s;
-		transition: all 0.3s ease 0s;
+	/*	position: fixed;*/
+	/*	visibility: hidden;*/
+	/*	z-index: 10;*/
+	/*	top: 0;*/
+	/*	left: 0;*/
+	/*	bottom: 0;*/
+	/*	right: 0;*/
+	/*	background-color: transparent;*/
+	/*	opacity: 0;*/
+	/*	-webkit-transition: all 0.3s ease 0s;*/
+	/*	transition: all 0.3s ease 0s;*/
 	}
 
 	.mobile-active .mainmenu_wrapper {

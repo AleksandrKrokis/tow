@@ -1,11 +1,19 @@
 {
-  "name": "tow",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:AleksandrKrokis/tow.git",
-  "author": "Aleksandr Krokis <pinochet41@gmail.com>",
-  "license": "MIT",
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
   "dependencies": {
-    "@nuxt/content": "^2.12.1"
+    "@nuxt/content": "^2.12.1",
+    "@nuxtjs/i18n": "^8.3.1",
+    "nuxt": "^3.11.2",
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.2"
   }
 }

@@ -11,15 +11,15 @@
           <div class="col-md-9 text-right">
             <nav class="mainmenu_wrapper" style="display: block">
               <nuxt-link to="/" class="inline-block padding_0" style="margin-left: 5px; margin-right: 5px;"
-                         @click="setLocale('ee')">
+                         @click="setLocaleAndReload('ee')">
                 <img src="~/assets/ee.svg" width="20px" alt="">
               </nuxt-link>
               <nuxt-link :to="localePath('en')" class="inline-block padding_0"
-                         style="margin-left: 5px; margin-right: 5px;" @click="setLocale('en')">
+                         style="margin-left: 5px; margin-right: 5px;" @click="setLocaleAndReload('en')">
                 <img src="~/assets/gb.svg" width="20px" alt="">
               </nuxt-link>
               <nuxt-link :to="localePath('ru')" class="inline-block padding_0"
-                         style="margin-left: 5px; margin-right: 5px;" @click="setLocale('ru')">
+                         style="margin-left: 5px; margin-right: 5px;" @click="setLocaleAndReload('ru')">
                 <img src="~/assets/ru.svg" width="20px" alt="">
               </nuxt-link>
             </nav>
@@ -39,12 +39,6 @@
                   <h1 class="big grey">
                     {{ $t('hero.firstLine') }}
                   </h1>
-                </div>
-                <div class="intro-layer to_animate" data-animation="fadeInUp">
-                  <p class="lightfont">
-                    Fast, courteous and inexpensive towing and
-                    <br> roadside assistance in Baltic states.
-                  </p>
                 </div>
               </div>
             </div>
@@ -72,46 +66,44 @@
             <img src="~/assets/slide-3.webp" class="topmargin_10" alt="">
           </div>
           <div class="col-lg-5 col-md-6">
-            <h2 class="section_header numbered-header">hiinad eesti piires:</h2>
-            <p class="small-text">effective transportation</p>
+            <h2 class="section_header numbered-header">{{ $t('prices.title') }}:</h2>
             <hr class="divider_30_3 zebra_bg">
             <p>
-              Omame kogemusi rasketehnika pukseerimises, vintsimises ja
-              päästetöödes aastast 65.
-              Testame veautode, haagiste, busside, traktorite vedusid ja pakume tehnoabi ning erineva raskusastmega
-              vintsimistöid eestis ja välismaal.
-              Leiame lahendused ka keerulistes oludes!
+              {{ $t('prices.desc') }}
             </p>
             <div class="inline-block topmargin_10">
               <ul class="list1 checklist grey">
-                <li>Väljakutse <strong>50€</strong></li>
-                <li>Töötund 07-22 <strong>100€</strong></li>
-                <li>Töötund 22-07 <strong>160€</strong></li>
-                <li>Vintsimise töötund <strong>160€</strong></li>
-                <li>Available
-                  <strong>24 hours</strong> a day,
-                  <strong>7 days</strong> a week
-                </li>
-                <li><u>Hindadele lisandub käibemaks!</u></li>
+                <li>{{ $t('prices.startFee') }} <strong>50€</strong></li>
+                <li>{{ $t('prices.hourWork') }} 07-22 <strong>100€</strong></li>
+                <li>{{ $t('prices.hourWork') }} 22-07 <strong>160€</strong></li>
+                <li>{{ $t('prices.winching') }} <strong>160€</strong></li>
+                <li>{{ $t('prices.available') }} 24/7</li>
+                <li><u>{{ $t('prices.vat') }}</u></li>
               </ul>
-              <p>Sidud välismaale kokkuleppe hindadega! <br> Puksiir@alfatre.ee vi +372 53 3000 53</p>
+              <p>
+                <strong>
+                  <u>{{ $t('prices.nb') }}</u>
+                </strong>
+                <br>
+                <a href="mailto:puksiir@alfatre.ee">puksiir@alfatre.ee</a>
+                <br>
+                <a href="tel:+37253300053">+372 53 3000 53</a>
+              </p>
             </div>
           </div>
         </div>
         <div class="row topmargin_40">
           <div class="col-md-4 col-sm-4 col-lg-4 col-4" style="vertical-align: top;">
-            <div class="h3">Teenindusleping puksiir</div>
-            <a href="#">Laadi alla</a>
+            <div class="h3">{{ $t('licence.agreement') }}</div>
+            <a href="#">{{ $t('licence.download') }}</a>
           </div>
           <div class="col-md-4 col-sm-4 col-lg-4 col-4" style="vertical-align: top;">
-            <div class="h3">Tingimused</div>
-            <p>Välissõite ja muid hinnakirjas välja toomata site teostatakse eraldi|
-              kokkuleppe alusel. Puksiirteenus algab väljasoidu algusest Teaduspargil
-              11, Tallinn ja löppeb tagasi judes Teaduspargi 11, Tallinn.</p>
+            <div class="h3">{{ $t('licence.terms') }}</div>
+            <p>{{ $t('licence.termsDesc') }}</p>
           </div>
           <div class="col-md-4 col-sm-4 col-lg-4 col-4" style="vertical-align: top;">
-            <div class="h3">Teisaldamise tingimused</div>
-            <a href="#">Laadi alla</a>
+            <div class="h3">{{ $t('licence.towTerms') }}</div>
+            <a href="#">{{ $t('licence.download') }}</a>
           </div>
         </div>
       </div>
@@ -127,9 +119,7 @@
           </div>
           <div class="col-md-3 col-sm-6 to_animate animated fadeInUp" data-animation="fadeInUp">
             <div class="widget widget_text topmargin_15">
-              <h3 class="widget-title">Get in
-                <strong>Touch</strong>
-              </h3>
+              <h3 class="widget-title">{{ $t('contact.title') }}</h3>
               <hr class="divider_30_3 zebra_bg divider_left">
               <div class="media small-teaser">
                 <div class="media-left">
@@ -160,7 +150,7 @@
                   <i class="fa fa-clock-o highlight fontsize_18"></i>
                 </div>
                 <div class="media-body">
-                  24 hours a day, 7 days a week
+                  {{ $t('prices.available') }} 24/7
                 </div>
               </div>
             </div>
@@ -173,7 +163,7 @@
 
 
 <script lang="ts" setup>
-const {locale, setLocale} = useI18n()
+const {locale, setLocale, t} = useI18n()
 const localePath = useLocalePath()
 
 import '~/assets/animations.css'
@@ -181,18 +171,60 @@ import '~/assets/bootstrap.min.css'
 import '~/assets/main.css'
 import '~/assets/fonts.css'
 
-useHead({
-  script: [
-    {
-      src: '/js/compressed.js',
-      type: 'text/javascript',
-      tagPosition: 'bodyClose'
-    },
-    {
-      src: '/js/main.js',
-      type: 'text/javascript',
-      tagPosition: 'bodyClose'
-    }
-  ]
-})
+const setLocaleAndReload = (localePath: string) => {
+  setLocale(localePath)
+}
+
+const runHead = () => {
+  useHead({
+    meta: [
+      {charset: 'utf-8'},
+      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+      {
+        name: 'description',
+        content: t('meta.desc')
+      },
+      {
+        name: 'keywords',
+        content: t('meta.keywords')
+      },
+      {name: 'author', content: 'Alfatre'},
+      {name: 'robots', content: 'index, follow'},
+      {property: 'og:title', content: t('meta.title')},
+      {
+        property: 'og:description',
+        content: t('meta.desc')
+      },
+      {property: 'og:image', content: '/public/favicon.png'},
+      {property: 'og:url', content: 'veoautopuksiir.ee'},
+      {property: 'og:type', content: 'website'},
+      {name: 'twitter:card', content: 'summary'},
+      {name: 'twitter:title', content: t('meta.title')},
+      {name: 'twitter:title', content: t('meta.desc')},
+    ],
+    title: t('meta.title'),
+    script: [
+      {
+        src: '/js/compressed.js',
+        type: 'text/javascript',
+        tagPosition: 'bodyClose'
+      },
+      {
+        src: '/js/main.js',
+        type: 'text/javascript',
+        tagPosition: 'bodyClose'
+      }
+    ],
+    link: [
+      {
+        href: '/public/favicon.png',
+        rel: 'icon'
+      }
+    ]
+  })
+}
+
+runHead()
+
+watch(locale, runHead)
 </script>

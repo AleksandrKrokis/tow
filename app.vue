@@ -95,7 +95,14 @@
         <div class="row topmargin_40">
           <div class="col-md-4 col-sm-4 col-lg-4 col-4" style="vertical-align: top;">
             <div class="h3">{{ $t('licence.agreement') }}</div>
-            <a href="#">{{ $t('licence.download') }}</a>
+            <a
+                href="/docs/teenindusleping-puksiir.pdf"
+                download="teenindusleping-puksiir.pdf"
+                class="text-capitalize btn btn-sm fontsize_20"
+                style="font-variant: small-caps;"
+            >
+              {{ $t('licence.download') }}
+            </a>
           </div>
           <div class="col-md-4 col-sm-4 col-lg-4 col-4" style="vertical-align: top;">
             <div class="h3">{{ $t('licence.terms') }}</div>
@@ -103,7 +110,14 @@
           </div>
           <div class="col-md-4 col-sm-4 col-lg-4 col-4" style="vertical-align: top;">
             <div class="h3">{{ $t('licence.towTerms') }}</div>
-            <a href="#">{{ $t('licence.download') }}</a>
+            <a
+                href="/docs/teisaldamise-tingimused.pdf"
+                download="teisaldamise-tingimused.pdf"
+                class="text-capitalize btn btn-sm fontsize_20"
+                style="font-variant: small-caps;"
+            >
+              {{ $t('licence.download') }}
+            </a>
           </div>
         </div>
       </div>
@@ -213,11 +227,23 @@ const runHead = () => {
         src: '/js/main.js',
         type: 'text/javascript',
         tagPosition: 'bodyClose'
+      },
+      {
+        src: 'https://www.googletagmanager.com/gtag/js?id=AW-16661839723',
+        async: true
+      },
+      {
+        children: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-16661839723');
+      `
       }
     ],
     link: [
       {
-        href: '/public/favicon.png',
+        href: '/favicon.png',
         rel: 'icon'
       }
     ]
